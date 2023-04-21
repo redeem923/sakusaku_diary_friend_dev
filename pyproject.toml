@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "sakusaku-diary-friend"
+version = "0.1.0"
+description = ""
+authors = ["tkt-tmp <t.tampo@okorande.com>"]
+readme = "README.md"
+packages = [{include = "sakusaku_diary_friend"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.95.1"
+uvicorn = "^0.21.1"
+openai = "^0.27.4"
+line-bot-sdk = "^2.4.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
