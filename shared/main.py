@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from chatbot import Chatbot
-from line_handler import LineHandler
-import settings
+from shared.line_handler import LineHandler
+import shared.settings as settings
 
 
 app = FastAPI()

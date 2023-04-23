@@ -1,6 +1,7 @@
 import logging
-import os
+# import os
 import azure.functions as func
+from shared.settings import LINE_CHANNEL_SECRET, LINE_CHANNEL_ACCESS_TOKEN
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -13,8 +14,10 @@ from linebot.models import (
 )
 
 # Azure FunctionsのApplication Settingに設定した値から取得する↓
-channel_secret = os.getenv('LINE_CHANNEL_SECRET', None)
-channel_access_token = os.getenv('LINE_CHANNEL_ACCESS_TOKEN', None)
+# channel_secret = os.getenv('LINE_CHANNEL_SECRET', None)
+# channel_access_token = os.getenv('LINE_CHANNEL_ACCESS_TOKEN', None)
+channel_secret = LINE_CHANNEL_SECRET
+channel_access_token = LINE_CHANNEL_ACCESS_TOKEN
 
 line_bot_api = LineBotApi(channel_access_token)
 handler = WebhookHandler(channel_secret)

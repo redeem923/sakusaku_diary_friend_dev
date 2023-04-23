@@ -1,6 +1,6 @@
 from state_machine import StateMachine
 from database import Database
-from ai_engine import AIEngine
+from shared.ai_engine import AIEngine
 
 
 class Chatbot:

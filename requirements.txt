@@ -7,3 +7,4 @@ line-bot-sdk
 openai
 fastapi
 pydantic
+python-dotenv
