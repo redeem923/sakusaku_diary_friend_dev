@@ -1,26 +1,20 @@
-import logging
-# import os
-import azure.functions as func
-from shared.settings import LINE_CHANNEL_SECRET, LINE_CHANNEL_ACCESS_TOKEN
-
-from linebot import (
-    LineBotApi, WebhookHandler
+from linebot.models import (
+    MessageEvent, TextMessage, TextSendMessage,
 )
 from linebot.exceptions import (
     InvalidSignatureError
 )
-from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
+import logging
+import azure.functions as func
+from shared.settings import LINE_CHANNEL_SECRET, LINE_CHANNEL_ACCESS_TOKEN
+from shared.chatbot import Chatbot
+
+from linebot import (
+    LineBotApi, WebhookHandler
 )
-
-# Azure FunctionsのApplication Settingに設定した値から取得する↓
-# channel_secret = os.getenv('LINE_CHANNEL_SECRET', None)
-# channel_access_token = os.getenv('LINE_CHANNEL_ACCESS_TOKEN', None)
-channel_secret = LINE_CHANNEL_SECRET
-channel_access_token = LINE_CHANNEL_ACCESS_TOKEN
-
-line_bot_api = LineBotApi(channel_access_token)
-handler = WebhookHandler(channel_secret)
+chatbot = Chatbot()
+handler = WebhookHandler(LINE_CHANNEL_SECRET)
+line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
@@ -48,3 +42,15 @@ def message_text(event):
         event.reply_token,
         TextSendMessage(text=event.message.text)
     )
+
+    # reply_token = event.reply_token
+    # user_id = event.source.user_id
+    # message_type = event.message.type
+    # message_content = event.message.text
+
+    # if message_type is not None:
+    #     response_message = chatbot.handle_message(
+    #         user_id, message_type, message_content)
+    #     if response_message is not None:
+    #         line_bot_api.reply_message(
+    #             reply_token=reply_token, messages=TextMessage(text=response_message))

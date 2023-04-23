@@ -1,14 +1,14 @@
-from state_machine import StateMachine
-from database import Database
-from shared.ai_engine import AIEngine
+# from state_machine import StateMachine
+# from database import Database
+# from shared.ai_engine import AIEngine
 
 
 class Chatbot:
 
-    def __init__(self):
-        self.state_machine = StateMachine()
-        self.database = Database("chatbot.db")
-        self.ai_engine = AIEngine()
+    # def __init__(self):
+    # self.state_machine = StateMachine()
+    # self.database = Database("chatbot.db")
+    # self.ai_engine = AIEngine()
 
     def handle_message(self, user_id, message_type, message_content):
         return message_content
