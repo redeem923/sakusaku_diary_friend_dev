@@ -1,7 +1,7 @@
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import TextMessage, MessageEvent
-from app.chatbot import Chatbot
+from chatbot import Chatbot
 
 
 class LineHandler:
