@@ -4,5 +4,9 @@
     "azureFunctions.pythonVenv": ".venv",
     "azureFunctions.projectLanguage": "Python",
     "azureFunctions.projectRuntime": "~4",
-    "debug.internalConsoleOptions": "neverOpen"
+    "debug.internalConsoleOptions": "neverOpen",
+    "python.defaultInterpreterPath": "/workspaces/sakusaku-diary-friend/.venv/bin/python",
+    "python.analysis.extraPaths": [
+        "/workspaces/sakusaku-diary-friend/.venv/lib/python3.10/site-packages"
+    ]
 }
