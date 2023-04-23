@@ -37,8 +37,8 @@ async def handle_webhook(payload: Payload):
                 )
     return {"status": "ok"}
 
-print("Starting server...")
 # 開発環境でのみサーバーを起動
 if __name__ == "__main__" and settings.ENV == "development":
+    print("Starting development server at http://localhost:8000")
     import uvicorn
     uvicorn.run("main:app", port=8000, reload=True)

@@ -637,7 +637,7 @@ email = ["email-validator (>=1.0.3)"]
 name = "python-dotenv"
 version = "1.0.0"
 description = "Read key-value pairs from a .env file and set them as environment variables"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.8"
 files = [
@@ -860,4 +860,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "3b23ae9cbdad81ca61d9817cd28b169ae74bae95e911015672be0e44abe9de49"
+content-hash = "bc5b9baac4dbce8f2394a0503f98a4c00143244bc26ca330241bbd3ccd4ec4cc"

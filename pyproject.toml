@@ -13,11 +13,11 @@ line-bot-sdk = "^2.4.2"
 openai = "^0.27.4"
 fastapi = "^0.95.1"
 pydantic = "^1.10.7"
+python-dotenv = "^1.0.0"
 
 
 [tool.poetry.group.dev.dependencies]
 uvicorn = "^0.21.1"
-python-dotenv = "^1.0.0"
 
 [build-system]
 requires = ["poetry-core"]
