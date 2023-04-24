@@ -8,11 +8,15 @@ import logging
 import azure.functions as func
 from shared.settings import LINE_CHANNEL_SECRET, LINE_CHANNEL_ACCESS_TOKEN
 from webhook.chatbot import Chatbot
+from shared.ai_engine import AIEngine
+from shared.database import Database
 
 from linebot import (
     LineBotApi, WebhookHandler
 )
 chatbot = Chatbot()
+ai_engine = AIEngine()
+db = Database()
 handler = WebhookHandler(LINE_CHANNEL_SECRET)
 line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 
@@ -38,19 +42,12 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 @handler.add(MessageEvent, message=TextMessage)
 def message_text(event):
+    # [シンプルな日常報告、お勧めメニュー紹介、セールスプロモーション、セクシーなシチュエーション、趣味や好きなもの、日常の出来事、悩み]ここら辺を想定している
+    topic = "シンプルな日常報告"
+    past_diary_data = db.get_past_diary_data(topic)
+    generated_text = ai_engine.generate_diary_entry(
+        topic, past_diary_data)
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text)
+        TextSendMessage(text=generated_text)
     )
-
-    # reply_token = event.reply_token
-    # user_id = event.source.user_id
-    # message_type = event.message.type
-    # message_content = event.message.text
-
-    # if message_type is not None:
-    #     response_message = chatbot.handle_message(
-    #         user_id, message_type, message_content)
-    #     if response_message is not None:
-    #         line_bot_api.reply_message(
-    #             reply_token=reply_token, messages=TextMessage(text=response_message))
