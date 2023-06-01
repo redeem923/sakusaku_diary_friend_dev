@@ -43,11 +43,11 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 @handler.add(MessageEvent, message=TextMessage)
 def message_text(event):
     # [シンプルな日常報告、お勧めメニュー紹介、セールスプロモーション、セクシーなシチュエーション、趣味や好きなもの、日常の出来事、悩み]ここら辺を想定している
-    topic = "シンプルな日常報告"
-    past_diary_data = db.get_past_diary_data(topic)
-    generated_text = ai_engine.generate_diary_entry(
-        topic, past_diary_data)
+    # topic = "シンプルな日常報告"
+    # past_diary_data = db.get_past_diary_data(topic)
+    # generated_text = ai_engine.generate_diary_entry(
+    #     topic, past_diary_data)
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=generated_text)
+        TextSendMessage(text=event.message.text)
     )
