@@ -1,3 +1,11 @@
+from linebot import (
+    LineBotApi, WebhookHandler
+)
+from shared.database import Database
+from shared.ai_engine import AIEngine
+from webhook.chatbot import Chatbot
+from shared.settings import LINE_CHANNEL_SECRET, LINE_CHANNEL_ACCESS_TOKEN
+import azure.functions as func
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
@@ -5,15 +13,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 import logging
-import azure.functions as func
-from shared.settings import LINE_CHANNEL_SECRET, LINE_CHANNEL_ACCESS_TOKEN
-from webhook.chatbot import Chatbot
-from shared.ai_engine import AIEngine
-from shared.database import Database
 
-from linebot import (
-    LineBotApi, WebhookHandler
-)
 chatbot = Chatbot()
 ai_engine = AIEngine()
 db = Database()
