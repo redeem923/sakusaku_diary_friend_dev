@@ -13,6 +13,8 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 import logging
+logging.info(LINE_CHANNEL_SECRET)
+logging.info(LINE_CHANNEL_ACCESS_TOKEN)
 
 chatbot = Chatbot()
 ai_engine = AIEngine()
