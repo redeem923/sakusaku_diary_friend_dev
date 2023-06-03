@@ -15,7 +15,6 @@ from linebot.exceptions import (
 import logging
 logging.info(LINE_CHANNEL_SECRET)
 logging.info(LINE_CHANNEL_ACCESS_TOKEN)
-print("airmoto")
 
 chatbot = Chatbot()
 ai_engine = AIEngine()
