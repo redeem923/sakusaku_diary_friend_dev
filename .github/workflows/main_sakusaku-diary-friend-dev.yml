@@ -65,6 +65,6 @@ jobs:
           app-name: 'sakusaku-diary-friend-dev'
           slot-name: 'Production'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B3AE2CABED1D4F4085780785D9FC8BB8 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A77073C2BCD1488F99E016E6A59A9148 }}
           scm-do-build-during-deployment: true
           enable-oryx-build: true
